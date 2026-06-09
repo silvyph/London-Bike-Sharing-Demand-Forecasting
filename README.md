@@ -143,9 +143,9 @@ Performance Metrics:
 
 | Metric | Value |
 |----------|----------|
-| R² Score | INSERT_RESULT |
-| RMSE | INSERT_RESULT |
-| MAE | INSERT_RESULT |
+| R² Score | 0.949572 |
+| RMSE | 231.317537 |
+| MAE | 143.588785 |
 
 ---
 
