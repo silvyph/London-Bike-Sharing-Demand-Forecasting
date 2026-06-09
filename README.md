@@ -18,7 +18,7 @@ The goal is to understand the factors affecting bike rental demand and provide d
 
 ## 📊 Dashboard Preview
 
-![Dashboard Preview](dashboard/dashboard_preview.png)
+![Dashboard Preview](dashboard_preview.png)
 
 🔗 Interactive Tableau Dashboard:
 
