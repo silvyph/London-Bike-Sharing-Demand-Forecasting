@@ -1,55 +1,213 @@
+# 🚲 London Bike Sharing Demand Analysis and Forecasting
+
+## 📌 Project Overview
+
+This project analyzes bike-sharing demand in London and builds a machine learning model to forecast future rental demand based on weather conditions and temporal features.
+
+The project combines:
+
+- Exploratory Data Analysis (EDA)
+- Feature Engineering
+- Machine Learning Modeling
+- Demand Forecasting
+- Interactive Tableau Dashboard
+
+The goal is to understand the factors affecting bike rental demand and provide demand forecasts that can support transportation planning and operational decision-making.
+
+---
+
+## 📊 Dashboard Preview
+
+![Dashboard Preview](dashboard/dashboard_preview.png)
+
+🔗 Interactive Tableau Dashboard:
+
+https://public.tableau.com/app/profile/silvy.putri.hanafi/viz/LondonBikeSharingDashboard_17809844480910/Dashboard2
+
+---
+
+## 🎯 Business Problem
+
+Bike-sharing operators need accurate demand forecasting to:
+
+- Optimize bike allocation
+- Reduce shortages during peak demand
+- Improve customer satisfaction
+- Support sustainable transportation planning
+
+Understanding rental patterns can help operators make better operational decisions and improve service availability.
+
+---
+
 ## 📦 Dataset
 
-This project uses the **London Bike Sharing** dataset obtained from Kaggle:  
+Source:
+
 https://www.kaggle.com/datasets/hmavrodiev/london-bike-sharing-dataset
 
-The dataset contains hourly bike rental records in London from 2015 to 2017 (approximately 17,414 rows).  
-The main features include:
+The dataset contains approximately 17,414 hourly records collected between 2015 and 2017.
 
-- **timestamp**: date and time of observation  
-- **cnt**: total number of bike rentals  
-- **t1, t2**: actual temperature and “feels-like” temperature (°C)  
-- **hum**: humidity (%)  
-- **wind_speed**: wind speed (km/h)  
-- **weather_code**: weather condition category code  
-- **is_holiday**: holiday indicator (1 = holiday, 0 = non-holiday)  
-- **is_weekend**: weekend indicator (1 = weekend, 0 = weekday)  
-- **season**: season category (0–3)  
+### Features
 
-This dataset is used to build a **regression model** to predict **bike rental demand** based on environmental and temporal conditions.
+| Feature | Description |
+|----------|----------|
+| timestamp | Observation timestamp |
+| cnt | Total bike rentals |
+| t1 | Actual temperature |
+| t2 | Feels-like temperature |
+| hum | Humidity |
+| wind_speed | Wind speed |
+| weather_code | Weather condition |
+| is_holiday | Holiday indicator |
+| is_weekend | Weekend indicator |
+| season | Season category |
 
-# MSIB London Bike Demand Prediction
+---
 
-This project is part of the **MSIB (Merdeka Belajar Kampus Merdeka)** program and focuses on analyzing the **London Bike Sharing Dataset** to predict bike rental demand using **regression methods**.
+## 🔍 Exploratory Data Analysis
 
-## 📌 Project Background
-The increasing use of sustainable transportation plays an important role in reducing **air pollution** and traffic congestion in urban areas. Bike-sharing systems are one of the eco-friendly solutions that support this goal. Therefore, accurate demand prediction is needed to improve bike availability and operational efficiency.
+Key findings from the analysis:
 
-## 🎯 Objectives
-- Analyze patterns and factors affecting bike rental demand
-- Build a **regression-based prediction model** for bike-sharing demand
-- Support decision-making for sustainable transportation planning to help reduce air pollution
+### 🌞 Seasonal Pattern
 
-## 🧠 Methodology
-- Data preprocessing and cleaning
-- Exploratory Data Analysis (EDA)
-- Feature selection
-- Regression modeling (e.g., Linear Regression / Multiple Regression)
-- Model evaluation using performance metrics
+Summer shows the highest average bike rental demand, while Winter records the lowest.
 
-## 📊 Dataset
-- **London Bike Sharing Dataset**
-- Features include weather conditions, temperature, humidity, wind speed, and time-related variables
+### 🌡 Temperature Effect
 
-## 🛠️ Tools & Technologies
+Bike rental demand increases as temperature rises.
+
+### 🕒 Peak Usage Hours
+
+Demand peaks around:
+
+- 08:00
+- 17:00–18:00
+
+indicating strong commuting behavior.
+
+### ☁ Weather Impact
+
+Weather conditions significantly influence rental volume.
+
+Clear and partly cloudy conditions generate higher rental demand compared to rainy or snowy conditions.
+
+---
+
+## ⚙ Data Preprocessing
+
+The following preprocessing steps were applied:
+
+- Missing value checking
+- Duplicate checking
+- Outlier handling using IQR method
+- Datetime feature extraction
+- Feature scaling using StandardScaler
+- Multicollinearity analysis using VIF
+
+Feature engineering generated:
+
+- Year
+- Month
+- Day
+- Hour
+
+from the timestamp variable.
+
+---
+
+## 🤖 Machine Learning Models
+
+Several regression algorithms were evaluated:
+
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+- Random Forest Regressor
+- Gradient Boosting Regressor
+- AdaBoost Regressor
+- LightGBM Regressor
+- XGBoost Regressor
+- K-Nearest Neighbors Regressor
+
+Hyperparameter tuning was performed using GridSearchCV.
+
+---
+
+## 🏆 Best Model
+
+Best-performing model:
+
+**XGBoost Regressor**
+
+Performance Metrics:
+
+| Metric | Value |
+|----------|----------|
+| R² Score | INSERT_RESULT |
+| RMSE | INSERT_RESULT |
+| MAE | INSERT_RESULT |
+
+---
+
+## 📈 Feature Importance
+
+Top influential features:
+
+1. Hour
+2. Temperature (T2)
+3. Weather Code
+4. Humidity
+5. Season
+
+These variables contribute the most to rental demand prediction.
+
+---
+
+## 🔮 Forecasting
+
+The trained model was used to predict bike-sharing demand for January–February 2023 using real weather data retrieved from the Open-Meteo API.
+
+Forecast results indicate demand patterns similar to historical observations.
+
+---
+
+## 🛠 Technologies Used
+
+### Programming
+
 - Python
-- Pandas & NumPy
-- Matplotlib / Seaborn
-- Scikit-learn
+
+### Libraries
+
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+- XGBoost
+- LightGBM
+
+### Visualization
+
+- Tableau Public
+
+### Environment
+
 - Google Colab
 
-## 📈 Expected Outcome
-A regression model capable of predicting bike rental demand, which can be used as a reference to encourage bike usage as an alternative transportation mode to help reduce **air pollution**.
+---
+
+## 📁 Repository Contents
+
+| Folder | Description |
+|----------|----------|
+| data | Historical and forecast datasets |
+| notebooks | Analysis and modeling notebook |
+| dashboard | Tableau dashboard screenshots |
+| model | Saved trained models |
+
+---
 
 ## 👩‍💻 Author
-Putri Silvy
+
+**Silvy Putri Hanafi**
